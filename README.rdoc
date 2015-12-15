@@ -1,1 +1,1 @@
-This is the official repository for the alpha blog app. Feel free to contribute!
+This is the official repository for the alpha blog app. Feel free to contribute!!
