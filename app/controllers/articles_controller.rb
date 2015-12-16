@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:edit, :update, :show, :destroy] #call private set_article method only on edit, update, show, destroy methods. DRY practices.
 
   def index
     @articles = Article.all
@@ -9,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id]) #set_article before_action load
   end
 
   def create
@@ -23,7 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id]) #set_article before_action load
     if @article.update(article_params)
       flash[:notice] = "Article was updated!"
       redirect_to article_path(@article)
@@ -33,17 +34,21 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id]) #set_article before_action load
   end
-  
+
   def destroy
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id]) #set_article before_action load
     @article.destroy
     flash[:notice] = "Article was successfully deleted!"
     redirect_to articles_path
-  end 
+  end
 
   private
+    def set_article
+      @article = Article.find(params[:id])
+    end
+
     def article_params
       params.require(:article).permit(:title, :description)
     end
