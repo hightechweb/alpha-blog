@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# DT Bootstrap at https://github.com/twbs/bootstrap-sass
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -33,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -44,8 +46,8 @@ group :development, :test do
   gem 'spring'
 end
 
-group :production do 
+group :production do
   gem 'pg'
   gem 'rails_12factor'
-end  
+end
 
