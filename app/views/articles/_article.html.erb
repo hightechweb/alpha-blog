@@ -1,0 +1,25 @@
+<% obj.each do |a| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="article-title">
+          <%= link_to a.title, article_path(a) %>
+        </div>
+        <div class="article-body">
+          <%= truncate(a.description, length: 95) %>
+          <div class="article-meta-details">
+          <small>Published by: <%= a.user.username if a.user  %>,
+                  <%= time_ago_in_words(a.created_at) %> ago,
+                  last updated: <%= time_ago_in_words(a.updated_at) %> ago</small>
+          </div>
+        </div>
+        <div class="article-actions">
+          <%= link_to "Edit this article", edit_article_path(a), class: "btn btn-xs btn-success" %>
+          <%= link_to "Delete this article", article_path(a), method: :delete,
+                                              data: { confirm: "Are you sure you want to delete?"},
+                                              class: "btn btn-xs btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
