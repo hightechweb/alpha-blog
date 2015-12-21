@@ -55,7 +55,8 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :description)
+      #whitelist the category_ids as Array from article_params view/articles/_form.html.erb
+      params.require(:article).permit(:title, :description, category_ids: [])
     end
 
     def require_same_user
