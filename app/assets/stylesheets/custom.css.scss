@@ -26,9 +26,13 @@ $navbar-default-bg: black;
 }
 
 .jumbotron {
-  background-image: asset-url('dummy-parallax-2.jpg');
+  position: relative;
+  background: #000 asset-url('dummy-parallax-2.jpg') center center;
+  width: 100%;
+  height: 100%;
   background-size: cover;
-  height: 560px;
+  overflow: hidden;
+  /* height: 560px; */
 }
 
 .jumbotron h1 {
