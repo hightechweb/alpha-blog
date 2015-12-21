@@ -3,7 +3,12 @@ require 'test_helper'
 # create categories integration test
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
+  def setup
+    @user = User.create(username: "john", email: "john@example.com", password: "password", admin: true)
+  end
+
   test "get new category form and create category" do
+    sign_in_as(@user, "password")
     # 1 ) get new category path # run rake test
     get new_category_path
     # 2 ) assert the form template
@@ -20,6 +25,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
   end
 
   test "invalid category submission results in failure" do
+    sign_in_as(@user, "password")
     get new_category_path
     assert_template 'categories/new'
     # check for no change in category count
