@@ -1,3 +1,6 @@
+<% # Meta information for the <head> section %>
+<% title @category.name %>
+
 <h1 align="center"><%= "Category: " + @category.name %></h1>
 <div align="center">
   <% if logged_in? and current_user.admin? %>
